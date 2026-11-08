@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center font-sans antialiased">
-       <!-- ANA EKRAN (AYARLAR) -->
+    <!-- ANA EKRAN (AYARLAR) -->
     <div id="setup-screen" class="w-full max-w-md p-6 bg-slate-800/50 backdrop-blur rounded-3xl shadow-2xl border border-slate-700 mx-4">
         <div class="text-center mb-8">
             <h1 class="text-3xl font-bold text-white mb-2">Interval Timer</h1>
@@ -17,15 +17,15 @@
         <div class="space-y-6">
             <!-- Egzersiz Süresi Girişi -->
             <div>
-                <label for="workTime" class="block text-sm font-medium text-slate-300 mb-2">Egzersiz Süresi (saniye)</label>
-                <input type="number" id="workTime" value="20" min="1" 
+                <label for="work-time" class="block text-sm font-medium text-slate-300 mb-2">Egzersiz Süresi (saniye)</label>
+                <input type="number" id="work-time" value="20" min="1" 
                     class="w-full bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-white text-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all text-center font-semibold">
             </div>
 
             <!-- Dinlenme Süresi Girişi -->
             <div>
-                <label for="restTime" class="block text-sm font-medium text-slate-300 mb-2">Dinlenme Süresi (saniye)</label>
-                <input type="number" id="restTime" value="40" min="1" 
+                <label for="rest-time" class="block text-sm font-medium text-slate-300 mb-2">Dinlenme Süresi (saniye)</label>
+                <input type="number" id="rest-time" value="40" min="1" 
                     class="w-full bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-white text-lg focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-center font-semibold">
             </div>
 
@@ -43,6 +43,7 @@
             </button>
         </div>
     </div>
+    
     <!-- Sayaç Ekranı -->
     <div id="timer" class="hidden flex-col items-center justify-center w-full h-screen transition-colors duration-500">
         <div id="status" class="text-4xl md:text-6xl font-extrabold uppercase tracking-widest mb-4 opacity-90 drop-shadow-md">HAZIRLAN</div>
@@ -65,7 +66,8 @@
         let interval = null;
         let audioCtx = null;
 
-        const setupUI = document.getElementById('setup');
+        // BURASI GÜNCELLENDİ: setup-screen olarak değiştirildi
+        const setupUI = document.getElementById('setup-screen');
         const timerUI = document.getElementById('timer');
         const statusEl = document.getElementById('status');
         const timeEl = document.getElementById('time');
@@ -106,8 +108,9 @@
         }
 
         function startApp() {
-            workTime = parseInt(document.getElementById('workTime').value);
-            restTime = parseInt(document.getElementById('restTime').value);
+            // BURASI GÜNCELLENDİ: work-time ve rest-time olarak değiştirildi
+            workTime = parseInt(document.getElementById('work-time').value);
+            restTime = parseInt(document.getElementById('rest-time').value);
             totalSets = parseInt(document.getElementById('sets').value);
             
             if(workTime <= 0 || restTime <= 0 || totalSets <= 0) return alert("Lütfen geçerli değerler girin.");

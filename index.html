@@ -7,26 +7,42 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center font-sans antialiased">
-    <!-- Kurulum Ekranı -->
-    <div id="setup" class="bg-gray-800 p-8 rounded-2xl shadow-2xl w-full max-w-sm text-center">
-        <h1 class="text-3xl font-bold mb-6 text-emerald-400">Sayaç Kurulumu</h1>
-        <div class="space-y-4 text-left">
+       <!-- ANA EKRAN (AYARLAR) -->
+    <div id="setup-screen" class="w-full max-w-md p-6 bg-slate-800/50 backdrop-blur rounded-3xl shadow-2xl border border-slate-700 mx-4">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-white mb-2">Interval Timer</h1>
+            <p class="text-slate-400 text-sm">Antrenman ve dinlenme sürelerinizi ayarlayın</p>
+        </div>
+
+        <div class="space-y-6">
+            <!-- Egzersiz Süresi Girişi -->
             <div>
-                <label class="block text-gray-300 text-sm font-semibold mb-1">Egzersiz Süresi (sn)</label>
-                <input type="number" id="workTime" value="45" class="w-full bg-gray-700 text-white rounded-lg p-3 outline-none focus:ring-2 focus:ring-emerald-500">
+                <label for="work-time" class="block text-sm font-medium text-slate-300 mb-2">Egzersiz Süresi (saniye)</label>
+                <input type="number" id="work-time" value="20" min="1" 
+                    class="w-full bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-white text-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all text-center font-semibold">
             </div>
+
+            <!-- Dinlenme Süresi Girişi -->
             <div>
-                <label class="block text-gray-300 text-sm font-semibold mb-1">Dinlenme Süresi (sn)</label>
-                <input type="number" id="restTime" value="15" class="w-full bg-gray-700 text-white rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500">
+                <label for="rest-time" class="block text-sm font-medium text-slate-300 mb-2">Dinlenme Süresi (saniye)</label>
+                <input type="number" id="rest-time" value="40" min="1" 
+                    class="w-full bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-white text-lg focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all text-center font-semibold">
             </div>
+
+            <!-- Set Sayısı Girişi -->
             <div>
-                <label class="block text-gray-300 text-sm font-semibold mb-1">Set Sayısı</label>
-                <input type="number" id="sets" value="3" class="w-full bg-gray-700 text-white rounded-lg p-3 outline-none focus:ring-2 focus:ring-purple-500">
+                <label for="sets" class="block text-sm font-medium text-slate-300 mb-2">Set Sayısı</label>
+                <input type="number" id="sets" value="10" min="1" 
+                    class="w-full bg-slate-900 border border-slate-600 rounded-xl px-4 py-3 text-white text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all text-center font-semibold">
             </div>
-            <button onclick="startApp()" class="w-full mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 rounded-lg transition shadow-lg">BAŞLA</button>
+
+            <!-- Başla Butonu -->
+            <button id="start-btn" 
+                class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-indigo-500/30 transition-all transform hover:-translate-y-1 active:translate-y-0 text-xl mt-4">
+                Başla
+            </button>
         </div>
     </div>
-
     <!-- Sayaç Ekranı -->
     <div id="timer" class="hidden flex-col items-center justify-center w-full h-screen transition-colors duration-500">
         <div id="status" class="text-4xl md:text-6xl font-extrabold uppercase tracking-widest mb-4 opacity-90 drop-shadow-md">HAZIRLAN</div>
